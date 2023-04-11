@@ -17,7 +17,8 @@
   <dd>Tuesday, 11th April 2023</dd>
   
   <dt>Python libraries</dt>
-  <dd>
+  <dd></dd>
+</dl>
     | Environment     | GitHub link                                                                              | Comments                                   |
     | --------------- |------------------------------------------------------------------------------------------| -------------------------------------------|
     | base            | -                                                                                        | -                                          |
@@ -25,8 +26,5 @@
     | pysr            | [https://github.com/MilesCranmer/PySR](https://github.com/MilesCranmer/PySR)             | SR library                                 |
     | srbench         | [https://github.com/cavalab/srbench](https://github.com/cavalab/srbench)                 | SR benchmark                               |
     | ydata-profiling | [https://github.com/ydataai/ydata-profiling](https://github.com/ydataai/ydata-profiling) | html reports from a DataFrame              |
-  </dd>
-</dl>
-
 
 
