@@ -27,7 +27,7 @@
 | --------------- |------------------------------------------------------------------------------------------| -------------------------------------------|
 | base            | -                                                                                        | -                                          |
 | pmlb            | [https://github.com/EpistasisLab/pmlb](https://github.com/EpistasisLab/pmlb)             | benchmark dataset of supervised algorithms |
-| pysr            | [https://github.com/MilesCranmer/PySR](https://github.com/MilesCranmer/PySR)             | SR library                                 |
+| pysr            | [https://github.com/MilesCranmer/PySR](https://github.com/MilesCranmer/PySR)             | [demo](https://colab.research.google.com/github/MilesCranmer/PySR/blob/master/examples/pysr_demo.ipynb)                                 |
 | srbench         | [https://github.com/cavalab/srbench](https://github.com/cavalab/srbench)                 | SR benchmark                               |
 | ydata-profiling | [https://github.com/ydataai/ydata-profiling](https://github.com/ydataai/ydata-profiling) | html reports from a DataFrame              |
 
