@@ -9,9 +9,12 @@
 
 ## 1. Project001 - SR learning
 
-Name: SR learning<br>
-Started: Tuesday, 11th April 2023<br>
-Table of Python pachages:<br>
+Name: SR learning
+
+Started: Tuesday, 11th April 2023
+
+Table of Python pachages:
+
 | Environment     | GitHub link                                                                              | Comments                                   |
 | --------------- |------------------------------------------------------------------------------------------| -------------------------------------------|
 | base            | -                                                                                        | -                                          |
