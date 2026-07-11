@@ -1,9 +1,8 @@
 # Site help: LaTeX math and Python animations
 
 How to put mathematics and script-generated animations on this site. Both
-features are already wired up on the timeline page
-(`concepts/structure-2-timeline/index.html`); this document explains how they
-work and how to use them on any page.
+features are already wired up on the homepage (`index.html` at the repository
+root); this document explains how they work and how to use them on any page.
 
 - [1. LaTeX math with KaTeX](#1-latex-math-with-katex)
 - [2. Python animations with matplotlib → GIF](#2-python-animations-with-matplotlib--gif)
@@ -23,9 +22,9 @@ serves the files as-is — there is no build step.
 Add these lines inside `<head>`:
 
 ```html
-<link rel="stylesheet" href="../../assets/katex/katex.min.css">
-<script defer src="../../assets/katex/katex.min.js"></script>
-<script defer src="../../assets/katex/contrib/auto-render.min.js"
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<script defer src="assets/katex/katex.min.js"></script>
+<script defer src="assets/katex/contrib/auto-render.min.js"
   onload="renderMathInElement(document.body, {delimiters: [
     {left: '$$', right: '$$', display: true},
     {left: '\\(', right: '\\)', display: false}
@@ -38,7 +37,7 @@ Add these lines inside `<head>`:
 |---|---|
 | repository root (`index.html`) | `assets/katex/…` |
 | one level deep (`concepts/…`) | `../assets/katex/…` |
-| two levels deep (`concepts/structure-2-timeline/…`) | `../../assets/katex/…` |
+| two levels deep (`concepts/<page>/…`) | `../../assets/katex/…` |
 
 The `defer` attributes keep the scripts from blocking the page; `auto-render`
 scans the document once it loads and typesets everything between the
@@ -187,7 +186,7 @@ The moving parts:
 
 ```html
 <figure class="media">
-  <img src="../../assets/anim/sine-wave.gif" width="420" height="260"
+  <img src="assets/anim/sine-wave.gif" width="420" height="260"
        loading="lazy"
        alt="Traveling sine wave animation">
 </figure>
