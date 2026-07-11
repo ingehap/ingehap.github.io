@@ -46,6 +46,9 @@ everything that led to it:
 - Plain HTML/CSS, no build step or external dependencies, light and dark mode.
   Works on GitHub Pages as-is.
 
+Step-by-step instructions for both the math and the animation pipeline are in
+[`help.md`](help.md).
+
 ## Maintenance model
 
 - New paper or release: copy an `<article class="entry …">` block under the right
