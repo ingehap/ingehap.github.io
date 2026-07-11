@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept 2 · The Timeline</title>
+<style>
+  :root {
+    --bg: #f7f6f2;
+    --surface: #fffefb;
+    --ink: #26291f;
+    --muted: #61665a;
+    --faint: #8e9287;
+    --line: #ddddd2;
+    --accent: #3d6b4f;
+    --accent-soft: #e3ecdf;
+    --paper-dot: #3d6b4f;
+    --soft-dot: #a8862c;
+    --notice-bg: #26291f;
+    --notice-ink: #e6e6dc;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #191b16;
+      --surface: #21241d;
+      --ink: #e8e8de;
+      --muted: #a6aa9c;
+      --faint: #7b7f72;
+      --line: #35392f;
+      --accent: #8fbf9f;
+      --accent-soft: #26372c;
+      --paper-dot: #8fbf9f;
+      --soft-dot: #d4b25e;
+      --notice-bg: #0f110d;
+      --notice-ink: #b9bcae;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #191b16;
+    --surface: #21241d;
+    --ink: #e8e8de;
+    --muted: #a6aa9c;
+    --faint: #7b7f72;
+    --line: #35392f;
+    --accent: #8fbf9f;
+    --accent-soft: #26372c;
+    --paper-dot: #8fbf9f;
+    --soft-dot: #d4b25e;
+    --notice-bg: #0f110d;
+    --notice-ink: #b9bcae;
+  }
+  :root[data-theme="light"] {
+    --bg: #f7f6f2;
+    --surface: #fffefb;
+    --ink: #26291f;
+    --muted: #61665a;
+    --faint: #8e9287;
+    --line: #ddddd2;
+    --accent: #3d6b4f;
+    --accent-soft: #e3ecdf;
+    --paper-dot: #3d6b4f;
+    --soft-dot: #a8862c;
+    --notice-bg: #26291f;
+    --notice-ink: #e6e6dc;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: var(--serif); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .notice {
+    background: var(--notice-bg); color: var(--notice-ink);
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em;
+    text-align: center; padding: 0.5rem 1rem;
+  }
+  .notice strong { color: #fff; font-weight: 600; }
+
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.25rem; }
+
+  header.site { padding: 3.5rem 0 2.5rem; }
+  header.site h1 {
+    font-size: clamp(2.1rem, 5vw, 3rem); font-weight: 600;
+    letter-spacing: -0.015em; margin: 0 0 0.75rem; text-wrap: balance;
+  }
+  .bio { font-size: 1.08rem; color: var(--muted); max-width: 40rem; margin: 0; }
+  .idlinks {
+    display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem;
+    margin-top: 1.25rem; font-family: var(--sans); font-size: 0.85rem;
+  }
+
+  .layout { display: grid; grid-template-columns: 8rem 1fr; gap: 2.5rem; }
+  @media (max-width: 44rem) { .layout { grid-template-columns: 1fr; gap: 0; } .yearnav { display: none; } }
+
+  .yearnav { position: sticky; top: 1.5rem; align-self: start; padding-bottom: 3rem; }
+  .yearnav p {
+    font-family: var(--sans); font-size: 0.7rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--faint); margin: 0 0 0.6rem;
+  }
+  .yearnav a {
+    display: block; font-family: var(--sans); font-size: 0.85rem;
+    color: var(--muted); text-decoration: none; padding: 0.15rem 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .yearnav a:hover { color: var(--accent); }
+
+  .legend {
+    display: flex; gap: 1.5rem; font-family: var(--sans); font-size: 0.78rem;
+    color: var(--muted); margin-bottom: 1.5rem;
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--paper-dot); display: inline-block; }
+  .sq { width: 0.6rem; height: 0.6rem; background: var(--soft-dot); display: inline-block; }
+
+  .now {
+    background: var(--surface); border: 1px solid var(--line);
+    border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
+    padding: 1.25rem 1.5rem; margin-bottom: 2.5rem;
+  }
+  .now h2 {
+    font-family: var(--sans); font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin: 0 0 0.75rem;
+  }
+  .now ul { margin: 0; padding-left: 1.1rem; }
+  .now li { margin-bottom: 0.5rem; }
+  .now li:last-child { margin-bottom: 0; }
+  .now .note { color: var(--muted); font-size: 0.92rem; }
+
+  .stream { border-left: 2px solid var(--line); margin-left: 0.28rem; padding-bottom: 3rem; }
+  .yearblock { padding-top: 0.5rem; }
+  .yearblock h2 {
+    font-family: var(--sans); font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.1em; color: var(--faint); margin: 0 0 0.25rem;
+    padding-left: 1.6rem; position: relative; font-variant-numeric: tabular-nums;
+  }
+  .entry { position: relative; padding: 0.9rem 0 0.9rem 1.6rem; }
+  .entry::before {
+    content: ""; position: absolute; left: -0.32rem; top: 1.45rem;
+    width: 0.62rem; height: 0.62rem; background: var(--paper-dot);
+    border-radius: 50%; border: 2px solid var(--bg);
+  }
+  .entry.software::before { border-radius: 0; background: var(--soft-dot); }
+  .entry h3 { margin: 0 0 0.2rem; font-size: 1.12rem; font-weight: 600; letter-spacing: -0.01em; text-wrap: balance; }
+  .entry .venue { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); margin: 0 0 0.3rem; }
+  .entry p.desc { margin: 0 0 0.35rem; color: var(--muted); font-size: 0.95rem; max-width: 38rem; }
+  .entry .links { font-family: var(--sans); font-size: 0.82rem; display: flex; gap: 1.1rem; }
+
+  footer.site {
+    border-top: 1px solid var(--line); padding: 1.5rem 0 2.5rem;
+    color: var(--faint); font-family: var(--sans); font-size: 0.8rem;
+  }
+</style>
+</head>
+<body>
+<div class="notice"><strong>Structure concept 2 of 3 — “The Timeline”.</strong> Single page, chronological narrative. All names, papers, and projects below are placeholders.</div>
+
+<header class="site">
+  <div class="wrap">
+    <h1>Inge Hap</h1>
+    <p class="bio">Researcher working on interpretable machine learning for materials — symbolic regression, magnetic anisotropy, and the tools that make both reproducible. This page reads top-to-bottom as the story of that work: what's happening now, then everything that led here.</p>
+    <nav class="idlinks" aria-label="Profiles">
+      <a href="https://github.com/ingehap">GitHub</a>
+      <a href="#">ORCID</a>
+      <a href="#">Google Scholar</a>
+      <a href="mailto:ingehap@gmail.com">Email</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="yearnav" aria-label="Jump to year">
+    <p>Years</p>
+    <a href="#now">Now</a>
+    <a href="#y2026">2026</a>
+    <a href="#y2025">2025</a>
+    <a href="#y2024">2024</a>
+    <a href="#y2023">2023</a>
+  </nav>
+
+  <main>
+    <div class="legend" aria-hidden="true">
+      <span><span class="dot"></span> Publication</span>
+      <span><span class="sq"></span> Software</span>
+    </div>
+
+    <section class="now" id="now" aria-labelledby="now-h">
+      <h2 id="now-h">Now</h2>
+      <ul>
+        <li>Symbolic regression on the Mr&nbsp;Anisotropy database with PySR — benchmarking against SRBench. <span class="note">(started Apr 2023, ongoing)</span></li>
+        <li>Example: manuscript in preparation — a one-line status for work in flight goes here. <span class="note">(placeholder)</span></li>
+      </ul>
+    </section>
+
+    <div class="stream">
+      <section class="yearblock" id="y2026" aria-label="2026">
+        <h2>2026</h2>
+        <article class="entry paper">
+          <h3>Example: preprint under review</h3>
+          <p class="venue">arXiv preprint · under review</p>
+          <p class="desc">Placeholder preprint entry — newest items sit at the top of the stream, so the page always opens on your most recent work.</p>
+          <div class="links"><a href="#">arXiv</a></div>
+        </article>
+      </section>
+
+      <section class="yearblock" id="y2025" aria-label="2025">
+        <h2>2025</h2>
+        <article class="entry paper">
+          <h3>Example: Interpretable symbolic models for magnetocrystalline anisotropy</h3>
+          <p class="venue">Example Journal of Materials Informatics · with A. Coauthor, B. Coauthor</p>
+          <p class="desc">Placeholder journal article — a one-sentence plain-language takeaway is more inviting than an abstract.</p>
+          <div class="links"><a href="#">DOI</a><a href="#">PDF</a><a href="#">BibTeX</a></div>
+        </article>
+      </section>
+
+      <section class="yearblock" id="y2024" aria-label="2024">
+        <h2>2024</h2>
+        <article class="entry software">
+          <h3>Example: anisotropy-tools</h3>
+          <p class="venue">Python package · v1.0 released</p>
+          <p class="desc">Placeholder software release — releases interleave with papers so the timeline shows the full picture of output.</p>
+          <div class="links"><a href="#">Repository</a><a href="#">Docs</a></div>
+        </article>
+        <article class="entry paper">
+          <h3>Example: A benchmark for SR methods on materials datasets</h3>
+          <p class="venue">Example conference proceedings</p>
+          <p class="desc">Placeholder conference paper entry.</p>
+          <div class="links"><a href="#">DOI</a><a href="#">PDF</a></div>
+        </article>
+      </section>
+
+      <section class="yearblock" id="y2023" aria-label="2023">
+        <h2>2023</h2>
+        <article class="entry software">
+          <h3>Project001 — SR learning</h3>
+          <p class="venue">Research notebook · started April 2023</p>
+          <p class="desc">Symbolic-regression experiments on anisotropy data: PySR, pmlb benchmarks, SRBench, and ydata-profiling reports. This is the real seed project from the current repository.</p>
+          <div class="links"><a href="https://github.com/ingehap/ingehap.github.io">Repository</a></div>
+        </article>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">© 2026 Inge Hap · Built with plain HTML on GitHub Pages</div>
+</footer>
+</body>
+</html>
