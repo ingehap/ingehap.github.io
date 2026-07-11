@@ -1,9 +1,9 @@
 # Homepage structure: The Timeline
 
-The chosen structure for the new `ingehap.github.io` homepage, built as a working
-prototype in `concepts/structure-2-timeline/index.html`. (Two alternative
-structures — a filterable dashboard grid and a classic multi-page academic hub —
-were prototyped and rejected in favor of this one.)
+The structure of the `ingehap.github.io` homepage, live at the repository root
+as `index.html`. (Two alternative structures — a filterable dashboard grid and
+a classic multi-page academic hub — were prototyped and rejected in favor of
+this one.)
 
 The page is a single chronological narrative — a window into current work and
 everything that led to it:
@@ -59,7 +59,5 @@ Step-by-step instructions for both the math and the animation pipeline are in
 
 1. Replace the placeholder entries (marked "Example"/"placeholder") with real
    publications and projects — only *Project001 — SR learning* is real today.
-2. Promote the page to the site root as `index.html` and remove the concept
-   banner, making it the live homepage.
-3. Optional later: split entries into a small JSON data file rendered by a few
+2. Optional later: split entries into a small JSON data file rendered by a few
    lines of JS, if hand-editing HTML becomes tedious.
