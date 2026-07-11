@@ -163,6 +163,12 @@
   .entry .links { font-family: var(--sans); font-size: 0.82rem; display: flex; gap: 1.1rem; }
   .entry .formula { margin: 0.15rem 0 0.5rem; max-width: 38rem; overflow-x: auto; }
   .entry .formula .katex-display { margin: 0.4rem 0; }
+  .entry code { font-family: var(--mono); font-size: 0.85em; }
+  .entry .media { margin: 0.5rem 0 0.6rem; }
+  .entry .media img {
+    display: block; max-width: 100%; height: auto;
+    border: 1px solid var(--line); border-radius: 6px; background: #f7f6f2;
+  }
 
   footer.site {
     border-top: 1px solid var(--line); padding: 1.5rem 0 2.5rem;
@@ -218,6 +224,15 @@
           <p class="venue">arXiv preprint · under review</p>
           <p class="desc">Placeholder preprint entry — newest items sit at the top of the stream, so the page always opens on your most recent work.</p>
           <div class="links"><a href="#">arXiv</a></div>
+        </article>
+        <article class="entry software">
+          <h3>Example: anisotropy-anim</h3>
+          <p class="venue">Python script · matplotlib animation rendered to GIF</p>
+          <p class="desc">Placeholder software item demonstrating an embedded animation: a Python script (<code>scripts/anisotropy_animation.py</code>) renders the energy surface \(E_{\mathrm{a}}(\theta)\) with matplotlib's <code>FuncAnimation</code> and writes a looping GIF with the Pillow writer. As \(K_1/K_2\) sweeps, the easy directions (gold dots) migrate from axis to cone to plane.</p>
+          <figure class="media">
+            <img src="../../assets/anim/anisotropy-energy.gif" width="420" height="420" loading="lazy" alt="Animated polar plot of the uniaxial anisotropy energy surface; gold markers show the easy directions moving between the easy-axis, easy-cone and easy-plane regimes as K1/K2 sweeps">
+          </figure>
+          <div class="links"><a href="https://github.com/ingehap/ingehap.github.io/blob/main/scripts/anisotropy_animation.py">Python script</a></div>
         </article>
       </section>
 

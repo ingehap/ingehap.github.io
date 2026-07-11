@@ -36,6 +36,13 @@ everything that led to it:
   vendored in `assets/katex/` (CSS, JS, auto-render extension, woff2 fonts),
   so the site has no CDN dependency and works offline. The 2025 example
   publication shows a display equation.
+- **Animations from Python** — entries can embed animations rendered by Python
+  scripts. The pipeline is: script in `scripts/` (matplotlib's `FuncAnimation`
+  + the Pillow GIF writer, no external encoder) → looping GIF in `assets/anim/`
+  → plain `<img>` in the entry. The 2026 example software item shows the
+  anisotropy energy surface morphing between easy-axis, easy-cone and
+  easy-plane regimes; regenerate it with
+  `python scripts/anisotropy_animation.py assets/anim/anisotropy-energy.gif`.
 - Plain HTML/CSS, no build step or external dependencies, light and dark mode.
   Works on GitHub Pages as-is.
 
