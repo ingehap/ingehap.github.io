@@ -31,6 +31,11 @@ everything that led to it:
 - **Sticky year navigation** (desktop) — jump to any year; hidden on small screens.
 - **Entry anatomy** — title, venue or release line, one plain-language sentence,
   then links (DOI / PDF / BibTeX for papers, repository / docs for software).
+- **Mathematics** — entry text can contain LaTeX (`$$…$$` for display math,
+  `\(…\)` inline), rendered by [KaTeX](https://katex.org/). KaTeX 0.17.0 is
+  vendored in `assets/katex/` (CSS, JS, auto-render extension, woff2 fonts),
+  so the site has no CDN dependency and works offline. The 2025 example
+  publication shows a display equation.
 - Plain HTML/CSS, no build step or external dependencies, light and dark mode.
   Works on GitHub Pages as-is.
 

@@ -4,6 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Concept 2 · The Timeline</title>
+<link rel="stylesheet" href="../../assets/katex/katex.min.css">
+<script defer src="../../assets/katex/katex.min.js"></script>
+<script defer src="../../assets/katex/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {delimiters: [
+    {left: '$$', right: '$$', display: true},
+    {left: '\\(', right: '\\)', display: false}
+  ]});"></script>
 <style>
   :root {
     --bg: #f7f6f2;
@@ -154,6 +161,8 @@
   .entry .venue { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); margin: 0 0 0.3rem; }
   .entry p.desc { margin: 0 0 0.35rem; color: var(--muted); font-size: 0.95rem; max-width: 38rem; }
   .entry .links { font-family: var(--sans); font-size: 0.82rem; display: flex; gap: 1.1rem; }
+  .entry .formula { margin: 0.15rem 0 0.5rem; max-width: 38rem; overflow-x: auto; }
+  .entry .formula .katex-display { margin: 0.4rem 0; }
 
   footer.site {
     border-top: 1px solid var(--line); padding: 1.5rem 0 2.5rem;
@@ -217,7 +226,9 @@
         <article class="entry paper">
           <h3>Example: Interpretable symbolic models for magnetocrystalline anisotropy</h3>
           <p class="venue">Example Journal of Materials Informatics · with A. Coauthor, B. Coauthor</p>
-          <p class="desc">Placeholder journal article — a one-sentence plain-language takeaway is more inviting than an abstract.</p>
+          <p class="desc">Placeholder journal article — entries can carry mathematics, written as LaTeX in the page source. The kind of closed-form model symbolic regression recovers:</p>
+          <div class="formula">$$E_{\mathrm{a}}(\theta) \;=\; K_1 \sin^2\theta \;+\; K_2 \sin^4\theta$$</div>
+          <p class="desc">with anisotropy constants \(K_1\), \(K_2\) fitted per material.</p>
           <div class="links"><a href="#">DOI</a><a href="#">PDF</a><a href="#">BibTeX</a></div>
         </article>
       </section>
