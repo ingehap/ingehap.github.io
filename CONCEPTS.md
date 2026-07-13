@@ -26,8 +26,9 @@ everything that led to it:
 
 - **Pinned "Now" box** — ongoing work sits above the stream, so the page always
   opens on what's happening currently.
-- **One stream, ordered by year, newest first** — publications (circle markers)
-  and software releases (square markers) interleave on the same line of time.
+- **One stream, ordered by year, newest first** — publications (circle markers),
+  software releases (square markers) and courses (diamond markers) interleave
+  on the same line of time.
 - **Sticky year navigation** (desktop) — jump to any year; hidden on small screens.
 - **Entry anatomy** — title, venue or release line, one plain-language sentence,
   then links (DOI / PDF / BibTeX for papers, repository / docs for software).

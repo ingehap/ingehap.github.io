@@ -24,6 +24,7 @@
     --accent-soft: #e3ecdf;
     --paper-dot: #3d6b4f;
     --soft-dot: #a8862c;
+    --course-dot: #46628a;
     --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
     --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -40,6 +41,7 @@
       --accent-soft: #26372c;
       --paper-dot: #8fbf9f;
       --soft-dot: #d4b25e;
+      --course-dot: #8fa9c4;
     }
   }
   :root[data-theme="dark"] {
@@ -53,6 +55,7 @@
     --accent-soft: #26372c;
     --paper-dot: #8fbf9f;
     --soft-dot: #d4b25e;
+    --course-dot: #8fa9c4;
   }
   :root[data-theme="light"] {
     --bg: #f7f6f2;
@@ -65,6 +68,7 @@
     --accent-soft: #e3ecdf;
     --paper-dot: #3d6b4f;
     --soft-dot: #a8862c;
+    --course-dot: #46628a;
   }
 
   * { box-sizing: border-box; }
@@ -114,6 +118,7 @@
   .legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
   .dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--paper-dot); display: inline-block; }
   .sq { width: 0.6rem; height: 0.6rem; background: var(--soft-dot); display: inline-block; }
+  .di { width: 0.55rem; height: 0.55rem; background: var(--course-dot); display: inline-block; transform: rotate(45deg); }
 
   .now {
     background: var(--surface); border: 1px solid var(--line);
@@ -143,6 +148,7 @@
     border-radius: 50%; border: 2px solid var(--bg);
   }
   .entry.software::before { border-radius: 0; background: var(--soft-dot); }
+  .entry.course::before { border-radius: 0; background: var(--course-dot); transform: rotate(45deg); }
   .entry h3 { margin: 0 0 0.2rem; font-size: 1.12rem; font-weight: 600; letter-spacing: -0.01em; text-wrap: balance; }
   .entry .venue { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); margin: 0 0 0.3rem; }
   .entry p.desc { margin: 0 0 0.35rem; color: var(--muted); font-size: 0.95rem; max-width: 38rem; }
@@ -188,6 +194,7 @@
     <div class="legend" aria-hidden="true">
       <span><span class="dot"></span> Publication</span>
       <span><span class="sq"></span> Code</span>
+      <span><span class="di"></span> Course</span>
     </div>
 
     <section class="now" id="now" aria-labelledby="now-h">
